@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"module/internal/app"
 	"module/internal/config"
+	"module/internal/database"
 	"os"
 	"os/signal"
 	"syscall"
@@ -22,17 +23,17 @@ func main() {
 
 	fmt.Println(cfg.Server.Port)
 
-	// // проверка что есть бд, или его создание
-	// err := database.CheckDatabaseCreated(cfg.Database)
-	// if err != nil {
-	// 	return
-	// }
+	// проверка что есть бд, или его создание
+	err := database.CheckDatabaseCreated(cfg.Database)
+	if err != nil {
+		return
+	}
 
-	// // миграция и подключение к бд.
-	// database.OpenConnection(cfg.Database)
-	// database.StartMigration()
+	// миграция и подключение к бд.
+	database.OpenConnection(cfg.Database)
+	database.StartMigration()
 
-	// fmt.Println("postgress connected")
+	fmt.Println("postgress connected")
 
 	// // запуск кафка консьюмера в горутине
 	// services.KafkaUrlAdd(cfg.Kafka)
