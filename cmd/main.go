@@ -8,7 +8,6 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
-	"time"
 
 	log "github.com/sirupsen/logrus"
 )
@@ -20,9 +19,7 @@ func main() {
 	log.Info("the server is starting")
 
 	// получение конфигов
-	cfg := config.ConfigMustLoad("local")
-
-	time.Sleep(time.Minute * 5)
+	cfg := config.ConfigMustLoad("render")
 
 	// проверка что есть бд, или его создание
 	err := database.CheckDatabaseCreated(cfg.Database)
