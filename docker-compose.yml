@@ -25,7 +25,7 @@ services:
     image: messagio
     container_name: ps-backend
     ports:
-      - "127.0.0.1:8888:8888"
+      - "0.0.0.0:10000:10000"
     depends_on:
       "postgresql":
         condition: service_healthy
