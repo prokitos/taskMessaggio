@@ -1,0 +1,11 @@
+env: "local"
+server:
+  port: ":8888"
+kafka: "taskmessaggio.onrender.com:9092"
+postgres:
+  user: "postgres"
+  pass: "root"
+  port: "5432"
+  host: "taskmessaggio.onrender.com"
+  name: "postgres"
+  reload: false
