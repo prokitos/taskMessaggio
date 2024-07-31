@@ -5,6 +5,7 @@ import (
 	"module/internal/app"
 	"module/internal/config"
 	"module/internal/database"
+	"module/internal/services"
 	"os"
 	"os/signal"
 	"syscall"
@@ -19,7 +20,7 @@ func main() {
 	log.Info("the server is starting")
 
 	// получение конфигов
-	cfg := config.ConfigMustLoad("render")
+	cfg := config.ConfigMustLoad("local")
 
 	fmt.Println(cfg.Server.Port)
 
@@ -36,8 +37,8 @@ func main() {
 	fmt.Println("postgress connected")
 
 	// // запуск кафка консьюмера в горутине
-	// services.KafkaUrlAdd(cfg.Kafka)
-	// go services.KafkaConsumer()
+	services.KafkaUrlAdd(cfg.Kafka)
+	go services.KafkaConsumer()
 
 	// запуск сервера в горутине, чтобы потом нормально звершать приложение
 	var application app.App
