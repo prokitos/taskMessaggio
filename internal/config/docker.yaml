@@ -1,0 +1,11 @@
+env: "local"
+server:
+  port: ":8888"
+kafka: "kafka:9092"
+postgres:
+  user: "postgres"
+  pass: "root"
+  port: "5432"
+  host: "postgresql"
+  name: "postgres"
+  reload: false

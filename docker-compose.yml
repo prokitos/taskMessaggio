@@ -1,0 +1,52 @@
+version: "2.1"
+
+networks:
+  ps:
+
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    environment:
+      - ZOOKEEPER_CLIENT_PORT=2181
+    networks:
+      - ps
+
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    depends_on:
+      - zookeeper
+    environment:
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092
+    networks:
+      - ps
+
+  app:
+    image: messagio
+    container_name: ps-backend
+    ports:
+      - "127.0.0.1:8888:8888"
+    depends_on:
+      "postgresql":
+        condition: service_healthy
+    networks:
+      - ps
+
+  postgresql:
+    image: postgres:14-alpine
+    container_name: ps-sql
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    networks:
+      - ps
+    healthcheck:
+      test: pg_isready -U postgres
+
+
+
