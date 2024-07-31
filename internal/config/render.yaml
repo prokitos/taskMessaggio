@@ -1,4 +1,4 @@
-env: "local"
+env: "render"
 server:
   port: ":10000"
 kafka: "44.226.145.213:9092"
