@@ -1,6 +1,6 @@
 env: "local"
 server:
-  port: ":8888"
+  port: ":10000"
 kafka: "taskmessaggio.onrender.com:9092"
 postgres:
   user: "postgres"

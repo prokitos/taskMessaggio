@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"module/internal/app"
 	"module/internal/config"
 	"module/internal/database"
@@ -20,6 +21,8 @@ func main() {
 
 	// получение конфигов
 	cfg := config.ConfigMustLoad("render")
+
+	fmt.Println(cfg.Server.Port)
 
 	// проверка что есть бд, или его создание
 	err := database.CheckDatabaseCreated(cfg.Database)
