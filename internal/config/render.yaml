@@ -5,7 +5,7 @@ kafka: "0.0.0.0:9092"
 postgres:
   user: "postgres"
   pass: "root"
-  port: "5432"
+  port: "10000"
   host: "taskmessaggio-1.onrender.com"
   name: "postgres"
   reload: false
