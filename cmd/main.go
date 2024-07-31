@@ -20,7 +20,7 @@ func main() {
 	log.Info("the server is starting")
 
 	// получение конфигов
-	cfg := config.ConfigMustLoad("render")
+	cfg := config.ConfigMustLoad("local")
 
 	fmt.Println(cfg.Server.Port)
 
