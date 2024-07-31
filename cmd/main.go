@@ -19,7 +19,7 @@ func main() {
 	log.Info("the server is starting")
 
 	// получение конфигов
-	cfg := config.ConfigMustLoad("docker")
+	cfg := config.ConfigMustLoad("local")
 
 	// проверка что есть бд, или его создание
 	err := database.CheckDatabaseCreated(cfg.Database)
