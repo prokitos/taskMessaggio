@@ -34,6 +34,8 @@ func main() {
 	database.OpenConnection(cfg.Database)
 	database.StartMigration()
 
+	fmt.Println("postgress connected")
+
 	// запуск кафка консьюмера в горутине
 	services.KafkaUrlAdd(cfg.Kafka)
 	go services.KafkaConsumer()
