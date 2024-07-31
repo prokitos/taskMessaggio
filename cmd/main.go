@@ -8,6 +8,7 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
+	"time"
 
 	log "github.com/sirupsen/logrus"
 )
@@ -20,6 +21,8 @@ func main() {
 
 	// получение конфигов
 	cfg := config.ConfigMustLoad("local")
+
+	time.Sleep(time.Minute * 5)
 
 	// проверка что есть бд, или его создание
 	err := database.CheckDatabaseCreated(cfg.Database)
