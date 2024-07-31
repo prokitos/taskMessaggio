@@ -1,6 +1,6 @@
 env: "render"
 server:
-  port: "0.0.0.0:80"
+  port: "0.0.0.0:10000"
 kafka: "0.0.0.0:9092"
 postgres:
   user: "postgres"
