@@ -6,6 +6,6 @@ postgres:
   user: "postgres"
   pass: "root"
   port: "10001"
-  host: "0.0.0.0"
+  host: "taskmessaggio-1.onrender.com"
   name: "postgres"
   reload: false
