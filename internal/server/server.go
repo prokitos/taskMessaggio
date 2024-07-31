@@ -9,6 +9,7 @@ import (
 func ServerStart(port string) *fiber.App {
 
 	app := fiber.New()
+
 	handlers(app)
 	log.Fatal(app.Listen(port))
 
